@@ -58,8 +58,8 @@ class Option extends Model
             $query->whereHas('products', function($query) use ($subcategory_id) {
                 $query->where('subcategory_id',  $subcategory_id);
             })->with([
-                'features' => function($query) {
-                    $query->whereHas('variants.product', function($query, $subcategory_id) {
+                'features' => function($query) use ($subcategory_id) {
+                    $query->whereHas('variants.product', function($query)  use ($subcategory_id) {
                         $query->where('subcategory_id',  $subcategory_id);
                     });
                 }

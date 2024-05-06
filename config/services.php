@@ -30,5 +30,18 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => 'http://trepstom.com:8000/google-auth/callback',
+    ],
+
+    'niubiz' => [
+        'merchant_id' => env('NIUBIZ_MERCHAND_ID'),
+        'user' => env('NIUBIZ_USER'),
+        'password' => env('NIUBIZ_PASSWORD'),
+        'url_api' => env('NIUBIZ_URL_API'),
+        'url_js' => env('NIUBIZ_URL_JS'),
+    ]
 
 ];

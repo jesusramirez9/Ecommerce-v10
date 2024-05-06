@@ -43,15 +43,30 @@
                 {{ $slot }}
             </main>
 
-            <div class="mt-16">
+            <div class="">
                 @include('layouts.partials.app.footer')
             </div>
         </div>
 
         @stack('modals')
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         @livewireScripts
 
         @stack('js')
+
+        @if (session('swal'))
+    <script>
+        Swal.fire({!! json_encode(session('swal')) !!});
+    </script>
+@endif
+
+<script>
+    Livewire.on('swal', data => {
+        Swal.fire(data[0]);
+    });
+</script>
+
     </body>
 </html>
